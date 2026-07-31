@@ -3,9 +3,9 @@ import argparse
 import shutil # Ajouté pour l'option --clean
 
 # Définition de la structure de cours par défaut, sans le répertoire racine
-DEFAULT_COURSE_STRUCTURE = {
-    'cours_mathematiques': ['TD1', 'TD2', 'TD3'],
-    'cours_automatique': ['TD1', 'TD2']
+COURSE_STRUCTURE = {
+    'mathematiques': ['TD1', 'TD2', 'TD3'],
+    'automatique': ['TD1', 'TD2']
 }
 
 # --- Analyse des arguments --- #
@@ -28,13 +28,13 @@ courses_to_create = {}
 if args.courses:
     custom_course_names = [c.strip() for c in args.courses.split(',')]
     for course_name in custom_course_names:
-        if course_name in DEFAULT_COURSE_STRUCTURE:
-            courses_to_create[course_name] = DEFAULT_COURSE_STRUCTURE[course_name]
+        if course_name in COURSE_STRUCTURE:
+            courses_to_create[course_name] = COURSE_STRUCTURE[course_name]
         else:
             print(f"Attention : Le cours '{course_name}' n'est pas reconnu dans la structure par défaut. Création de sous-répertoires génériques (TD1, TD2) pour celui-ci.")
             courses_to_create[course_name] = ['TD1', 'TD2']
 else:
-    courses_to_create = DEFAULT_COURSE_STRUCTURE
+    courses_to_create = COURSE_STRUCTURE
 
 # Construire la structure finale des répertoires avec le root_dir
 final_directory_structure_paths = {} # Cela stockera les chemins réels comme 'my_courses/cours_mathematiques'
