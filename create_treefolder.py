@@ -17,7 +17,7 @@ parser.add_argument('--root_dir', type=str, default='.',
 parser.add_argument('--clean', action='store_true',
                     help='Supprime les répertoires principaux existants (dans le root_dir) avant de les créer.')
 
-# Lors de l'exécution dans Colab, sys.argv contient des arguments spécifiques à l'interpréteur.
+# sys.argv contient des arguments spécifiques à l'interpréteur.
 # Passer une liste vide à parse_args() simule l'absence d'arguments en ligne de commande.
 # Pour tester avec des arguments dans le notebook, vous pouvez modifier cette ligne, par exemple :
 # args = parser.parse_args(['--courses', 'cours_mathematiques', '--root_dir', 'my_courses'])
